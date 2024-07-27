@@ -133,7 +133,7 @@ Episode 10:
 
 
 Episode 11
-1. Custom Hook: why should we build out own hook? when should we build our own hook? how should we build out own hook?
+1. Custom Hook: why should we build our own hook? when should we build our own hook? how should we build our own hook?
 2. Reusability, readability, separation of concerns (maintainability), module, testable. why do we write function? we can wrap up a small piece of logic inside a function.  
 3. In the onClick button we call filterData() function, here we do not need to know what logic filterData() is using (binary search/linear search) to filter the data. I just need the output here. we need to abstract the logic, it makes our code much more readable, if I need to use this code to filter data somewhere else I can just reuse it.
 4. We need a common place where we can keep our utility function and import from there.
@@ -154,7 +154,7 @@ Episode 11
 19. How many times I have to set my event listener, just once, when my page loads.
 20. now we can understand how useParams() gives us the url, and useParams() also must use state, as every time my param changes my component is reloaded
 21. we are using useOnline() custom hook instead of normal function because in custom hook we can have state, useState and useEffect hook, inside normal function we cannot do that
-22. How to fake I am in offline, Network, dropdown "offline". No we have build a system to tell whether I am online or not.
+22. How to fake I am in offline, Network, dropdown "offline". Now we have build a system to tell whether I am online or not.
 23. This is not a senior dev code, because I am not cleaning the cache, I am not removing my event listener, whenever I am going to the offline then coming to the online a new event listener is created? no because we are using empty dependency array in useEffect, so useEffect will be called only once no matter how many times we go the online or offline, but it is always a good idea to clear out event listener when we go out of our component,
 24. Now we know how if online we can show the green dot and offline red dot, using the useOnline() custom hook we just have created.
 25. we can make useLoggedIn() custom hook, whenever we are building a feature we should think can I build a hook for it. home work create a custom hook to use local storage.
@@ -175,4 +175,7 @@ Episode 11
 40. When I go to Instamart why it is giving error? because here react is trying to load data that is not even there. so react will suspend the operation
 on demand loading -> Upon render -> suspend the loading, the Instamart bundle took 27ms to load but react tried to load it before that
 41. Import {Suspense} from "react"; wrap Instamart inside Suspense, <Suspense><Instamart></Instamart></Suspense>. Then takes care of it AutoMagically, when I write Suspense then React takes care of these components in a different fashion, then React know these components will be Lazy loaded so it waits, to this Promise to resolve, Suspense component takes a prop which is known as fallback={<Shimmer />}. Shimmer will be shown until the Instamart is available. why large scale apps are fast.
-42. Never import your component dynamically inside another component. 
+42. Never import your component dynamically inside another component. Lazy load in the top along with other imports.
+43. when you are building large scale application sometimes you need to create hooks to offload your logic and make your component file clean. 
+
+

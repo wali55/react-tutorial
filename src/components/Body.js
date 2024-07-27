@@ -17,20 +17,19 @@ const Body = () => {
     setFilteredRestaurants(myList);
   }, []);
 
-
   // const offline = useOnline();
   // if(offline) {
   //   return <h1>Offline, please check your internet connection.</h1>
   // }
-  
 
   if (!allRestaurants) {
     return null;
   }
 
-  return (
-    (allRestaurants.length === 0) ? <Shimmer />  
-    : (<>
+  return allRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
+    <>
       <div className="search-container">
         <input
           type="text"
@@ -40,7 +39,7 @@ const Body = () => {
           onChange={(e) => setSearchText(e.target.value)}
         />
         <button
-          className="search-btn"
+          style={{ backgroundColor: "lightgreen" }}
           onClick={() => {
             const result = filterData(searchText, allRestaurants);
             setFilteredRestaurants(result);
@@ -50,13 +49,16 @@ const Body = () => {
         </button>
       </div>
       <div className="restaurant-list">
-        {filteredRestaurants?.length === 0 ? (<h1>No Restaurant Found</h1>) :  filteredRestaurants.map((shop) => (
-          <RestaurantCard {...shop} key={shop.name} />
-        ))}
+        {filteredRestaurants?.length === 0 ? (
+          <h1>No Restaurant Found</h1>
+        ) : (
+          filteredRestaurants.map((shop) => (
+            <RestaurantCard {...shop} key={shop.name} />
+          ))
+        )}
         {/*This is known as props when I say I am passing some props to my component it means I am passing some data to my component*/}
       </div>
-    </>)
-    
+    </>
   );
 };
 
