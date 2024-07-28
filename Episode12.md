@@ -10,4 +10,12 @@
 10. When we are using a particular framework or library it restrict us someway, 
 11. Material UI, Base UI, Chakra, Ant Design component libraries or UI libraries.(pros & cons) and also Normal CSS, SCSS & SASS, inline CSS.
 12. Styled Components (pros & cons), passing CSS as props, using CSS inside your js 
-13. Tailwind CSS framework(pros & cons)
+13. Tailwind CSS framework(pros & cons), pros: do not have to toggle between CSS file and jsx file, Write CSS on the go, Reusability(comes with lots of pre build classes), less bundle size(minimal CSS that it offers to us), Flexible UI (lots of customized options not rigid like component libraries(MUI)) lot of control over our customization, 
+14. How can we configure Tailwind CSS for our project? One way is to use cdn links, 
+15. When you use Tailwind CSS, it removes a lot of default behaviors, like h1 is not look like normal paragraph, removes basic CSS, that our normal tag use to offer us, 
+16. Every style I put in through Tailwind CSS will be using "className" 
+17. do not use CDN, use npm package for tailwind css installation
+18. post css is a tool for transforming css with js, we need to tell parcel we are using tailwind classes when needs to be compiled so that browser can understand them
+19. Content: what files are tailwind css will be used in, js, ts, jsx, tsx
+20. The theme section is where you define your projects color palette, fonts, breakpoints, border radius, type scale etc.
+30. Extending Tailwind CSS with reusable third party plugins. Plugins lets you register new styles for tailwind to inject into user's stylesheet using js instead of css

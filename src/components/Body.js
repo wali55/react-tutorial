@@ -30,16 +30,16 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container">
+      <div className="search-container p-5">
         <input
           type="text"
-          className="search-input"
+          className="border rounded m-3 p-2"
           placeholder="search"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />
         <button
-          style={{ backgroundColor: "lightgreen" }}
+          className="bg-slate-300 px-3 py-2 rounded hover:bg-slate-400"
           onClick={() => {
             const result = filterData(searchText, allRestaurants);
             setFilteredRestaurants(result);
@@ -47,6 +47,7 @@ const Body = () => {
         >
           Search
         </button>
+        <h1 className="text-xl m-3 font-black text-purple-900">Hello World</h1>
       </div>
       <div className="restaurant-list">
         {filteredRestaurants?.length === 0 ? (

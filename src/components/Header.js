@@ -6,8 +6,8 @@ import {Link} from "react-router-dom";
 export const Title = () => {
   return (
     <a href="/">
-      <div className="logo">
-        <img alt="logo" src={Logo} />
+      <div className="max-w-[50px] rounded-full">
+        <img alt="logo" src={Logo} className="rounded-full" />
       </div>
     </a>
   );
@@ -33,23 +33,20 @@ const Header = () => {
 
   console.log('render');
   return (
-    <div className="header">
+    <div className="flex justify-between items-center bg-slate-200 p-5 shadow-lg">
       <Title />
-      <h1>{title}</h1>
-      <button onClick={() => setTitle("Good Food")}>Change Title</button>
-      <div className="list-items">
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
-          <li><Link to="/cart">Cart</Link></li>
-          <li><Link to="/instamart">Instamart</Link></li>
+      <div className="flex">
+        <ul className="flex">
+          <li className="px-4 hover:bg-slate-300 rounded-full text-center"><Link to="/">Home</Link></li>
+          <li className="px-4 hover:bg-slate-300 rounded-full"><Link to="/about">About</Link></li>
+          <li className="px-4 hover:bg-slate-300 rounded-full"><Link to="/contact">Contact</Link></li>
+          <li className="px-4 hover:bg-slate-300 rounded-full"><Link to="/cart">Cart</Link></li>
+          <li className="px-4 hover:bg-slate-300 rounded-full"><Link to="/instamart">Instamart</Link></li>
         </ul>
-        {isOnline ? 'green' : 'red'}
         {isLoggedIn ? (
-          <button onClick={() => setIsLoggedIn(false)}>Logout</button>
+          <button onClick={() => setIsLoggedIn(false)} className="px-4 hover:bg-slate-300 rounded-full">Logout</button>
         ) : (
-          <button onClick={() => setIsLoggedIn(true)}>Login</button>
+          <button onClick={() => setIsLoggedIn(true)} className="px-4 hover:bg-slate-300 rounded-full">Login</button>
         )}
       </div>
     </div>
