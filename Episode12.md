@@ -19,3 +19,8 @@
 19. Content: what files are tailwind css will be used in, js, ts, jsx, tsx
 20. The theme section is where you define your projects color palette, fonts, breakpoints, border radius, type scale etc.
 30. Extending Tailwind CSS with reusable third party plugins. Plugins lets you register new styles for tailwind to inject into user's stylesheet using js instead of css
+31. Tailwind CSS has 1000s of classes. Tailwind makes sure the classes you used only those will be shipped to production, stick to the native to classes
+32. My CSS should change according to the width of my screen, if my website crosses the width/threshold of my small device, small(phone), medium(tablet), large(desktop)
+33. sm:bg-blue-50, if the size is bigger then sm then then make the background blue
+34. Pros: can build app fast, Less code, easy to use, no duplicate css, bundle size is small, do not have to switch between files, easy to debug, gives us lots more control over things, we do everything inside out js file
+35. Cons: too much classes, initial learning curve associated with it, not all developers know tailwind, looks ugly and wordy

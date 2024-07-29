@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 export const Title = () => {
   return (
     <a href="/">
-      <div className="max-w-[50px] rounded-full">
+      <div className="sm:max-w-[50px] max-w-full mb-4 sm:mb-0">
         <img alt="logo" src={Logo} className="rounded-full" />
       </div>
     </a>
@@ -33,7 +33,7 @@ const Header = () => {
 
   console.log('render');
   return (
-    <div className="flex justify-between items-center bg-slate-200 p-5 shadow-lg">
+    <div className="sm:flex sm:justify-between block items-center bg-slate-200 p-5 shadow-lg md:bg-blue-50 sm:bg-yellow-50">
       <Title />
       <div className="flex">
         <ul className="flex">

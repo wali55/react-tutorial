@@ -33,7 +33,7 @@ const Body = () => {
       <div className="search-container p-5">
         <input
           type="text"
-          className="border rounded m-3 p-2"
+          className="border rounded m-3 p-2 focus:bg-slate-50"
           placeholder="search"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
@@ -47,9 +47,9 @@ const Body = () => {
         >
           Search
         </button>
-        <h1 className="text-xl m-3 font-black text-purple-900">Hello World</h1>
+        
       </div>
-      <div className="restaurant-list">
+      <div className="flex m-6 flex-wrap">
         {filteredRestaurants?.length === 0 ? (
           <h1>No Restaurant Found</h1>
         ) : (
