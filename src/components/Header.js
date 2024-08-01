@@ -20,18 +20,17 @@ const Header = () => {
   const isOnline = useOnline();
 
   useEffect(() => {
-    console.log('call useEffect')
+    
     const timer = setInterval(() => {
       console.log('react op');
     }, 1000)
 
     return () => {
       clearInterval(timer);
-      console.log('useEffect return')
     }
   }, [])
 
-  console.log('render');
+ 
   return (
     <div className="sm:flex sm:justify-between block items-center bg-slate-200 p-5 shadow-lg md:bg-blue-50 sm:bg-yellow-50">
       <Title />

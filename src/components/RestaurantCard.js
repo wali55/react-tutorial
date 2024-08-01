@@ -1,6 +1,9 @@
 import React from "react";
+import RestaurantMenu from "./RestaurantMenu";
 
-const RestaurantCard = ({ image, cuisines, ratings, name }) => {
+const RestaurantCard = (props) => {
+  const { image, cuisines, ratings, name } = props.shop;
+ 
   return (
     <div className="sm:w-56 w-full shadow-lg rounded-md m-3">
       <img src={image} alt="cake" className="rounded-t-md" />

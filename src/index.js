@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
@@ -14,6 +14,7 @@ import Shimmer from "./components/Shimmer";
 const Instamart = lazy(() => import("./components/Instamart"));
 const AboutOne = lazy(() => import("./components/AboutOne"));
 
+
 const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -26,7 +27,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <Suspense fallback={<h1>Loading...</h1>}><AboutOne /></Suspense>,
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <AboutOne />
+          </Suspense>
+        ),
         children: [
           {
             path: "profile",
@@ -65,3 +70,5 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+

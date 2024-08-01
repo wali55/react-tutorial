@@ -8,9 +8,15 @@ import useOnline from "../utils/useOnline";
 import { myList } from "../config";
 
 const Body = () => {
+  
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [allRestaurants, setAllRestaurants] = useState([]);
+
+  const [user, setUser] = useState({
+    myName: "wali",
+    email: "wali@gmail.com"
+  });
 
   useEffect(() => {
     setAllRestaurants(myList);
@@ -54,7 +60,7 @@ const Body = () => {
           <h1>No Restaurant Found</h1>
         ) : (
           filteredRestaurants.map((shop) => (
-            <RestaurantCard {...shop} key={shop.name} />
+            <RestaurantCard  shop={shop} key={shop.name} />
           ))
         )}
         {/*This is known as props when I say I am passing some props to my component it means I am passing some data to my component*/}
