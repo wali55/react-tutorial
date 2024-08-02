@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import { useState } from "react";
 import Shimmer from "./Shimmer";
@@ -6,22 +6,24 @@ import { filterData } from "../utils/helper";
 import useRestaurantList from "../utils/useRestaurantList";
 import useOnline from "../utils/useOnline";
 import { myList } from "../config";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
-  
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [allRestaurants, setAllRestaurants] = useState([]);
 
-  const [user, setUser] = useState({
-    myName: "wali",
-    email: "wali@gmail.com"
-  });
+  // const [user, setUser] = useState({
+  //   myName: "wali",
+  //   email: "wali@gmail.com"
+  // });
 
   useEffect(() => {
     setAllRestaurants(myList);
     setFilteredRestaurants(myList);
   }, []);
+
+  const { user, setUser } = useContext(UserContext);
 
   // const offline = useOnline();
   // if(offline) {
@@ -45,7 +47,7 @@ const Body = () => {
           onChange={(e) => setSearchText(e.target.value)}
         />
         <button
-          className="bg-slate-300 px-3 py-2 rounded hover:bg-slate-400"
+          className="bg-slate-300 px-3 py-2 rounded hover:bg-slate-400 inline-block mr-3"
           onClick={() => {
             const result = filterData(searchText, allRestaurants);
             setFilteredRestaurants(result);
@@ -53,14 +55,27 @@ const Body = () => {
         >
           Search
         </button>
-        
+        <input
+          value={user.name}
+          className="my-3 border inline-block p-2"
+          onChange={(e) =>
+            setUser({ ...user, name: e.target.value })
+          }
+        />
+        <input
+          value={user.email}
+          className="my-3 border inline-block p-2"
+          onChange={(e) =>
+            setUser({ ...user, email: e.target.value })
+          }
+        />
       </div>
       <div className="flex m-6 flex-wrap">
         {filteredRestaurants?.length === 0 ? (
           <h1>No Restaurant Found</h1>
         ) : (
           filteredRestaurants.map((shop) => (
-            <RestaurantCard  shop={shop} key={shop.name} />
+            <RestaurantCard shop={shop} key={shop.name} />
           ))
         )}
         {/*This is known as props when I say I am passing some props to my component it means I am passing some data to my component*/}
