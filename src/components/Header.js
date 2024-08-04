@@ -3,6 +3,8 @@ import Logo from "../youtube_logo.png";
 import useOnline from "../utils/useOnline";
 import { Link } from "react-router-dom";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
+
 
 export const Title = () => {
   return (
@@ -19,7 +21,8 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const {user} = useContext(UserContext);
-  console.log(user.name);
+
+  const cartItems = useSelector((store) => store.cart.items);
   // const isOnline = useOnline();
 
   // useEffect(() => {
@@ -48,10 +51,10 @@ const Header = () => {
             <Link to="/contact">Contact</Link>
           </li>
           <li className="px-4 hover:bg-slate-300 rounded-full">
-            <Link to="/cart">Cart</Link>
+            <Link to="/instamart">Instamart</Link>
           </li>
           <li className="px-4 hover:bg-slate-300 rounded-full">
-            <Link to="/instamart">Instamart</Link>
+            <Link to="/cart">Cart {cartItems.length} Items</Link>
           </li>
         </ul>
         <p>{user.name}</p>
