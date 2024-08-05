@@ -7,6 +7,7 @@ import useRestaurantList from "../utils/useRestaurantList";
 import useOnline from "../utils/useOnline";
 import { myList } from "../config";
 import UserContext from "../utils/UserContext";
+import RestaurantMenu from "./RestaurantMenu";
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
@@ -38,6 +39,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
+      <RestaurantMenu />
       <div className="search-container p-5">
         <input
           type="text"
@@ -58,16 +60,12 @@ const Body = () => {
         <input
           value={user.name}
           className="my-3 border inline-block p-2"
-          onChange={(e) =>
-            setUser({ ...user, name: e.target.value })
-          }
+          onChange={(e) => setUser({ ...user, name: e.target.value })}
         />
         <input
           value={user.email}
           className="my-3 border inline-block p-2"
-          onChange={(e) =>
-            setUser({ ...user, email: e.target.value })
-          }
+          onChange={(e) => setUser({ ...user, email: e.target.value })}
         />
       </div>
       <div className="flex m-6 flex-wrap">

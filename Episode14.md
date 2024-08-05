@@ -40,3 +40,7 @@
 40. Things we have done: create store using configureStore(), Provider to provide our store to the app, create Slice, createSlice() receives an obj name, initialState, reducers have actions and reducer function mapping, export cartSlicer.reducer, give it to the store, reducer: {cart: cartSlice}, export const {addItem, removeItem, clearCart} = cartSlice.actions; named export actions.
 41. useSelector() will receive callback function, that function receives the store, useSelector((store) => store.cart.items) like that we have subscribe store to the cart.
 42. dispatch will come from useDispatch(), dispatch(addItem("Mango"))
+43. useSelector() takes a function and function takes store, this is the place you will tell what you are subscribing to, what slice your component is subscribing to.
+44. I should never subscribe my component to the whole store. It will cause major performance issue. Every time store changes my component will rerender. we have to subscribe to specific portion of the store, the portion the component is using.
+45. Read about RTK query, async thunk, middleware
+46. Redux dev tools, extremely important

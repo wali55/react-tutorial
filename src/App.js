@@ -5,7 +5,6 @@ import Footer from "./components/Footer";
 import { Outlet } from "react-router-dom";
 import UserContext from "./utils/UserContext";
 import CartContext from "./utils/CartContext";
-import RestaurantMenu from "./components/RestaurantMenu";
 import { Provider } from "react-redux";
 import store from "./utils/store";
 
@@ -24,7 +23,6 @@ export default function App() {
         <UserContext.Provider value={{ user: user, setUser: setUser }}>
           <Header />
           <Outlet />
-          <RestaurantMenu />
           <Footer />
         </UserContext.Provider>
       </CartContext.Provider>
