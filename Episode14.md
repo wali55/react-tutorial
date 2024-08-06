@@ -43,4 +43,7 @@
 43. useSelector() takes a function and function takes store, this is the place you will tell what you are subscribing to, what slice your component is subscribing to.
 44. I should never subscribe my component to the whole store. It will cause major performance issue. Every time store changes my component will rerender. we have to subscribe to specific portion of the store, the portion the component is using.
 45. Read about RTK query, async thunk, middleware
-46. Redux dev tools, extremely important
+46. Redux dev tools, extremely important, see how the action is getting dispatched, how data is updated, in the redux dev tools we can see initially items was empty the we dispatched an action addItem, now item array has one item
+47. If I want to see the diff between 2 states then we can see by clicking in the diff, it shows one item is added
+48. It will be very helpful, when my application grows there will be so many slices, so many actions, so many dispatches, This extension will track each and every thing we did, add items, clear cart then add item again etc, I can also debug, I can skip an action (if it is not working) and play the other action 
+49. It even wrote test cases for me, for my reducers, we cannot use this test cases directly, we need to modify it, 
