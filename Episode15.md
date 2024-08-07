@@ -36,3 +36,15 @@
 31. test(), 1st argument is string and 2nd argument is function, this function is the code that this test function will execute, there will be expect, this is assertion, we expect this test will call the sum function with 2 positive numbers, toBe is there, the result will be addition of 2 numbers. we also have to import the sum function in our test file.
 32. now it is giving error, because we are trying to import in .test.js file, normal js file cannot have import statement, in order to fix it we need the help of babel. google search 'jest babel config'. we can use jest with babel, jest needs some babel packages.
 33. npm i -D babel-jest @babel/core @babel/preset-env
+34. By default jest does not know import statement, now babel will make jest understand what is import statement.
+35. Difference between json and js? keys in key/value pair don't always need double quote in js. In json keys in key/value pair always need double quote. Js object is only used by js. other programming language can generate and  use json. Functions are compatible with js object, functions are incompatible with json.
+36. we have configured our babel now using babel.config.js file 
+37. there is '.toBe', there is also '.not.toBe'. This is just a js testing.
+38. Our app is not running now. Are this test running in the browser? No. It is running on a different environment. It is jest. It is our code that is checking on the code. It is not rendering on the browser. It uses jsdom environment. It is not browser. Will it have browser capabilities? Some of them.
+39. we now have the coverage report and coverage folder in our app. this report tells us in sum.js the test covered 100% of the code.
+40. write /coverage in the .gitignore file.
+41. now we will try to do unit testing. what is unit testing? let's test the header first. when my header loads (1)logo should load (2) cart items should be 0 (3) default status should be online. create a file Header.test.js, now we will try to write test cases for react, make your test case name descriptive, if you write 100s of test cases then if the name is not descriptive then it will be difficult to understand what test cases are failing. the name should be what we expect "Logo should load on rendering Header",
+42. how to load Header inside the jsdom, I will use render(), which will be given by react testing library, jsdom does not have a root, render(<Header />), syntax error: support for jsx not currently enabled, we now need to install @babel/preset-react, 
+43. Runtime means a place where your code is run, now the runtime is jsdom, now I am saying take the runtime as automatic
+44. npm i -D @babel/preset-react (we need this because our code not understand jsx)
+45. Gives error again, now it does not understand logo, it is throwing an error because it is trying to read this png as js, if in this case if we have used url of the image it will work, why? because it is not a file. it is a string.
