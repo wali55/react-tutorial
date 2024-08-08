@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import Logo from "../youtube_logo.png";
+// import Logo from "../mocks/dummyLogo";
 import useOnline from "../utils/useOnline";
 import { Link } from "react-router-dom";
 import UserContext from "../utils/UserContext";
@@ -10,7 +11,7 @@ export const Title = () => {
   return (
     <a href="/">
       <div className="sm:max-w-[50px] max-w-full mb-4 sm:mb-0">
-        <img alt="logo" src={Logo} className="rounded-full" />
+        <img data-testid="logo" alt="logo" src={Logo} className="rounded-full" />
       </div>
     </a>
   );
@@ -54,7 +55,7 @@ const Header = () => {
             <Link to="/instamart">Instamart</Link>
           </li>
           <li className="px-4 hover:bg-slate-300 rounded-full">
-            <Link to="/cart">Cart {cartItems.length} Items</Link>
+            <Link to="/cart" data-testid="cart-zero">Cart {cartItems.length} Items</Link>
           </li>
         </ul>
         <p>{user.name}</p>
